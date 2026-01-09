@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Equilibrium Cariri - Geriatria Especializada</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Cores adaptadas para um ambiente de Geriatria (tons de verde e azul sereno) */
+            --cor-primaria: #2E8B57; /* Verde SeaGreen - transmite saúde e vida */
+            --cor-secundaria: #4682B4; /* Azul Aço - transmite confiança */
+            --texto-dark: #333333;
+        }
+
+        body { font-family: 'Nunito', sans-serif; color: var(--texto-dark); }
+
+        /* Estrutura de Menu Centralizado (Idêntica à Singular) */
+        .navbar-brand img { max-height: 70px; width: auto; }
+        
+        @media (min-width: 992px) {
+            .navbar-collapse {
+                display: flex !important;
+                justify-content: space-between;
+            }
+            .navbar-nav {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .btn-talentos {
+            background-color: var(--cor-primaria);
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 50px;
+            padding: 10px 25px;
+            text-decoration: none;
+        }
+        .btn-talentos:hover { background-color: #246b43; color: white; }
+
+        .card-blog {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .card-blog:hover { transform: translateY(-5px); }
+        
+        .tag-saude { background-color: #2E8B57; color: white; }
+        .tag-prevencao { background-color: #4682B4; color: white; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top py-3 shadow-sm">
+        <div class="container position-relative">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/equilibium.jpeg" alt="logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuEquilibrium">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuEquilibrium">
+                <ul class="navbar-nav mx-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link px-3" href="index.html">Início</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="quem-somos.html">Quem Somos</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="blog.html">Blog Saúde</a></li>
+                </ul>
+                
+                <div class="ms-auto">
+                    <a class="btn btn-talentos"  href="https://api.whatsapp.com/send/?phone=5588996560706&text=Nosso+whatsapp&type=phone_number&app_absent=0" target="_blank">Agende seu Atendimento</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="inicio" class="bg-light py-5">
+        <div class="container text-center py-5">
+            <h1 class="display-5 fw-bold mb-3">Viver bem é uma questão de equilíbrio</h1>
+            <p class="lead text-muted">Centro especializado em Geriatria e Envelhecimento Ativo no Cariri.</p>
+        </div>
+    </header>
+
+    <section id="blog" class="container py-5">
+        <h2 class="text-center mb-5">Conteúdo sobre Envelhecimento Saudável</h2>
+        <div class="row g-4" id="postagens-geriatria">
+            </div>
+    </section>
+
+    <footer class="py-5 text-center bg-light border-top">
+        <p class="text-muted">© 2026 Instituto Equilibrium Cariri. Cuidado e Dedicação.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+         const prevencao = [
+            {
+                titulo: "Prevenção de Quedas",
+                resumo: "Dicas essenciais para tornar a casa mais segura para o idoso e evitar acidentes comuns.",
+                tag: "Segurança",
+                classeTag: "tag-saude"
+            }
+            ];
+           const alimentacao = [
+            {
+                titulo: "Alimentação na Terceira Idade",
+                resumo: "Nutrientes fundamentais para manter a vitalidade e fortalecer o sistema imunológico.",
+                tag: "Nutrição",
+                classeTag: "tag-prevencao"
+            }
+            ];
+        const neo = [
+            {
+                
+                titulo: "Check-up Geriátrico",
+                resumo: "Saiba quais exames são indispensáveis para garantir um envelhecimento preventivo.",
+                tag: "Exames",
+                classeTag: "bg-primary"
+            }    
+            ];
+
+        const container = document.getElementById('postagens-geriatria');
+
+        prevencao.forEach(post => {
+            container.innerHTML += `
+                <div class="col-md-4">
+                    <div class="card h-100 card-blog">
+                        <div class="card-body p-4">
+                            <span class="badge ${post.classeTag} mb-2">${post.tag}</span>
+                            <h5 class="card-title fw-bold">${post.titulo}</h5>
+                            <p class="card-text text-muted small">${post.resumo}</p>
+                            <a href="prenvecao.html" class="stretched-link text-decoration-none" style="color: var(--cor-primaria)">Ler mais →</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        alimentacao.forEach(tdh => {
+            container.innerHTML += `
+                <div class="col-md-4">
+                    <div class="card h-100 card-blog">
+                        <div class="card-body">
+                            <span class="badge ${tdh.classeTag} mb-2">${tdh.tag}</span>
+                            <h5 class="card-title fw-bold">${tdh.titulo}</h5>
+                            <p class="card-text text-muted small">${tdh.resumo}</p>
+                            <a href="alimentacao-saudavel.html" class="stretched-link text-decoration-none" style="color: var(--azul-singular)">Ler artigo completo →</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        
+        neo.forEach(neo => {
+            container.innerHTML += `
+                <div class="col-md-4">
+                    <div class="card h-100 card-blog">
+                        <div class="card-body">
+                            <span class="badge ${neo.classeTag} mb-2">${neo.tag}</span>
+                            <h5 class="card-title fw-bold">${neo.titulo}</h5>
+                            <p class="card-text text-muted small">${neo.resumo}</p>
+                            <a href="#" class="stretched-link text-decoration-none" style="color: var(--azul-singular)">Ler artigo completo →</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>
